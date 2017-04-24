@@ -1,24 +1,24 @@
 # Tensorflow setup for OSOC 2017
+
 Repo to hold all my tensorflow training
 
-
 ## Dependencies
+
 * git
 * tensorflow
     python 3.5 on windows
     python 2.7 mac
-
 * keras
     * scipy
     * numpy
     * pyymal
 
-
 ## Pretrained models
 
 Pretrained models (we recommend downloading in advance before the training begins)
 
-[Pretrained vision model](http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz) [Pretrained GloVe word embeddings](http://nlp.stanford.edu/data/glove.42B.300d.zip)
+* [Pretrained vision model](http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz) 
+* [Pretrained GloVe word embeddings](http://nlp.stanford.edu/data/glove.42B.300d.zip)
 
 ## Windows
 
@@ -29,11 +29,9 @@ Download python 3.5
 * https://www.python.org/downloads/windows/
 * python-3.5.2-amd64.exe
 
-Click Advanced on install and change the directory so we can easily setup the  environmental paths.
-
-Set the directory to C:\Python35 (Or your choice)
-
-Install...
+1. Click Advanced on install and change the directory so we can easily setup the  environmental paths
+2. Set the directory to C:\Python35 (Or your choice)
+3. Finish the install.
 
 #### Add Environment Variables
 On your Windows PC go to My computer -> right click anywhere and select Properties -> Advanced system setting -> Environment variables
@@ -138,37 +136,47 @@ b'Hello, TensorFlow!'
 
 ### Install numpy for python 3.5
 
-Download numpy to some directory...
+Download numpy to a directory and run pip install for the .*whl for the correct python version.
 
-http://www.lfd.uci.edu/~gohlke/pythonlibs/
+Windows binaries
 
-numpy‑1.12.1+mkl‑cp35‑cp35m‑win_amd64.whl
+* http://www.lfd.uci.edu/~gohlke/pythonlibs/
+* numpy‑1.12.1+mkl‑cp35‑cp35m‑win_amd64.whl
 
 > C:\>pip3 install "numpy-1.12.1+mkl-cp35-cp35m-win_amd64.whl"
-Processing c:\numpy-1.12.1+mkl-cp35-cp35m-win_amd64.whl
+
+```bash
+
+Processing c:\download\numpy-1.12.1+mkl-cp35-cp35m-win_amd64.whl
 Installing collected packages: numpy
   Found existing installation: numpy 1.12.1
     Uninstalling numpy-1.12.1:
       Successfully uninstalled numpy-1.12.1
 Successfully installed numpy-1.12.1+mkl
 
-### Install scipty for python 3.5
-http://www.lfd.uci.edu/~gohlke/pythonlibs/
+```
 
-scipy-0.19.0-cp35-cp35m-win_amd64.whl
+### Install scipy for python 3.5
+
+Download numpy to a directory and run pip install for the .*whl for the correct python version.
+
+Windows binaries
+
+* http://www.lfd.uci.edu/~gohlke/pythonlibs/
+* scipy-0.19.0-cp35-cp35m-win_amd64.whl
 
 > C:\>pip3 install "scipy-0.19.0-cp35-cp35m-win_amd64.whl"
 
 ```bash
 
-Processing c:\scipy-0.19.0-cp35-cp35m-win_amd64.whl
+Processing c:\downloads\scipy-0.19.0-cp35-cp35m-win_amd64.whl
 Requirement already satisfied: numpy>=1.8.2 in c:\python\python35\lib\site-packages (from scipy==0.19.0)
 Installing collected packages: scipy
 Successfully installed scipy-0.19.0
 
 ```
 
-### Test numpy, scipy, yaml
+### Test numpy, scipy
 
 > C:\>python
 
@@ -182,9 +190,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 '0.19.0'
 >>> numpy.__version__
 '1.12.1'
->>> import yaml
->>> yaml.__version__
-'3.12'
 >>> quit()
 
 ```
