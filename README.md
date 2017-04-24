@@ -368,79 +368,86 @@ Successfully installed h5py-2.7.0
 
 ### Installing Pip
 
-Anaconda was already setup... from an older Continuium Download
+Anaconda was already setup... from an older Continuium Download so this area needs to be re-worked from a scatch build.
+
 * Python 2.7.12 :: Anaconda custom (x86_64)
 
-cn ~ $  pip -V
+> cn ~ $  pip -V
+
+```bash
+
         pip 8.1.1 from /Users/cn/anaconda/lib/python2.7/site-packages (python 2.7)
-cn ~ $  sudo easy_install --upgrade pip
+
+```
+
+> cn ~ $  sudo easy_install --upgrade pip
+
+```bash
+
         Best match: pip 9.0.1
+```
 
-cn ~ $  pip -V
-        pip 9.0.1 from /Users/cn/anaconda/lib/python2.7/site-packages/pip-9.0.1-py2.7.egg (python 2.7)
+> cn ~ $  pip -V
 
+```bash
 
-### Installing Tensorflow
+      pip 9.0.1 from /Users/cn/anaconda/lib/python2.7/site-packages/pip-9.0.1-py2.7.egg (python 2.7)
+```
+
+### Install Tensorflow
+
 https://www.tensorflow.org/install/install_mac
 
-cn ~ $  sudo pip uninstall tensorflow
-cn ~ $  python 
-        Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17) 
-        [GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
-        Type "help", "copyright", "credits" or "license" for more information.
-        Anaconda is brought to you by Continuum Analytics.
-        Please check out: http://continuum.io/thanks and https://anaconda.org
-        
-        >>> import tensorflow as tf
-        >>> hello = tf.constant('Hello, TensorFlow!')
-        >>> sess = tf.Session()
+> cn ~ $  sudo pip install tensorflow
+> cn ~ $  python 
 
-W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, 
-    but these are available on your machine and could speed up CPU computations.
-W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, 
-    but these are available on your machine and could speed up CPU computations.
-W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, 
-    but these are available on your machine and could speed up CPU computations.
-W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, 
-    but these are available on your machine and could speed up CPU computations.
-W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, 
-    but these are available on your machine and could speed up CPU computations.
+```bash
+
+Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17)
+[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, 
+                but these are available on your machine and could speed up CPU computations.
+            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, 
+                but these are available on your machine and could speed up CPU computations.
+            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, 
+                but these are available on your machine and could speed up CPU computations.
+            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, 
+                but these are available on your machine and could speed up CPU computations.
+            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, 
+                but these are available on your machine and could speed up CPU computations.
 >>> print(sess.run(hello))
 Hello, TensorFlow!
+
+```
 
 cn ~ $  python -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 2
         1.0.1
 
-### Install Keras
-cn ~ $ pip install keras
-cn ~ $ pip install --upgrade keras
-
-cn ~ $ mkdir -p ~/.keras
-cn ~ $ echo '{"epsilon":1e-07,"floatx":"float32","backend":"tensorflow"}' > ~/.keras/keras.json
-
-Where did this get created?
-
-### Make Sure Keras runs
-cn ~ $ curl -sSL https://github.com/fchollet/keras/raw/master/examples/mnist_mlp.py | python
-
+> cn ~ $ curl -sSL https://github.com/fchollet/keras/raw/master/examples/mnist_mlp.py | python
 
 https://ermaker.github.io/blog/2016/06/22/get-started-with-keras-for-beginners-tensorflow-backend.html
 
+### Get the most current releast of Tensorflow
 
-### Models for the class.
-http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz
-http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz
+Check current version
+> cn ~ $ python
 
+```bash
 
-bumb version up
-
-cn ~ $ python
 >>> import tensorflow as tf
 >>> tf.__version__
 '1.0.1'
+```
 
-sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.1.0rc1-py2-none-any.whl
+Get the version urls here:
 
+> sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.1.0rc1-py2-none-any.whl
 > cn ~ $ python
 
 ```bash
@@ -448,5 +455,24 @@ sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/ten
 >>> import tensorflow as tf
 >>> tf.__version__
 '1.1.0-rc1'
+
+```
+
+### Install Keras
+
+> cn ~ $ pip install --upgrade keras
+> cn ~ $ mkdir -p ~/.keras
+> cn ~ $ echo '{"epsilon":1e-07,"floatx":"float32","backend":"tensorflow"}' > ~/.keras/keras.json
+
+Where did this get created?  Did I even need to do this?  Windows Keras hooked up tensorflow all by itself.
+
+### Make Sure Keras runs
+
+> cn ~ $ python
+
+```bash
+
+  >>> import keras
+  Using TensorFlow backend
 
 ```
