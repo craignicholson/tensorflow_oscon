@@ -1,10 +1,25 @@
-# tensorflow_oscon
+# Tensorflow setup for OSOC 2017
 Repo to hold all my tensorflow training
 
 
-# Tensorflow setup for OSOC 2017
+## Dependencies
+* git
+* tensorflow
+    python 3.5 on windows
+    python 2.7 mac
 
-## Windows
+* keras
+    * scipy
+    * numpy
+    * pyymal
+
+
+## Pretrained models
+Pretrained models (we recommend downloading in advance before the training begins):
+Pretrained vision model (http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz)
+Pretrained GloVe word embeddings (http://nlp.stanford.edu/data/glove.42B.300d.zip)
+ 
+ ## Windows
 Got ot this website and download python 3.5
 
 Get this installer...
