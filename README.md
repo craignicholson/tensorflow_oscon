@@ -461,10 +461,17 @@ Get the version urls here:
 ### Install Keras
 
 > cn ~ $ pip install --upgrade keras
+
+Make TensorFlow the default engine for Keras
+
+```shell
+
 > cn ~ $ mkdir -p ~/.keras
 > cn ~ $ echo '{"epsilon":1e-07,"floatx":"float32","backend":"tensorflow"}' > ~/.keras/keras.json
 
-Where did this get created?  Did I even need to do this?  Windows Keras hooked up tensorflow all by itself.
+```
+
+Did I even need to do this?  Windows Keras hooked up tensorflow all by itself.
 
 ### Make Sure Keras runs
 
