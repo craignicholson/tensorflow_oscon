@@ -16,42 +16,56 @@ Repo to hold all my tensorflow training
 
 ## Pretrained models
 
-Pretrained models (we recommend downloading in advance before the training begins):
-Pretrained vision model (http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz)
-Pretrained GloVe word embeddings (http://nlp.stanford.edu/data/glove.42B.300d.zip)
+Pretrained models (we recommend downloading in advance before the training begins)
 
+[Pretrained vision model](http://download.tensorflow.org/models/vgg_16_2016_08_28.tar.gz) [Pretrained GloVe word embeddings](http://nlp.stanford.edu/data/glove.42B.300d.zip)
 
 ## Windows
 
-
 ### Install Python 3.5, which works for tensorflow 1.1
 
-Got to this website and download python 3.5
+Download python 3.5
 
 * https://www.python.org/downloads/windows/
 * python-3.5.2-amd64.exe
 
-Get this installer...
-Click Advanced on install and change the directory so we can easily setup the environmental paths.
+Click Advanced on install and change the directory so we can easily setup the  environmental paths.
 
-C:\Python35
+Set the directory to C:\Python35 (Or your choice)
 
 Install...
 
-System Properties
+#### Add Environment Variables
+On your Windows PC go to My computer -> right click anywhere and select Properties -> Advanced system setting -> Environment variables
+** Environment Variables is at the bottom **
 
-Advanced
-Environment Variables at the bottom
 System Variables
-    Path
-        Edit
-            New
-                C:\Python35
-                C:\Python35\Scripts 
+    Path (Choose the Path Variable)
+        Edit  
+            New (Add the new paths for python, and .\scripts for pip)
+                C:\Python35  
+                C:\Python35\Scripts   
 
+#### Test Environment Variable
+Open powershell or command prompt
 
+> C:\>python --version
+
+```bash
+
+Python 3.5.2
+
+```
+
+Update pip
 > C:\> python -m pip install --upgrade pip
+> C:\>pip3 --version
 
+```bash
+
+pip 9.0.1 from c:\python\python35\lib\site-packages (python 3.5)
+
+```
 
 ### Install tensorflow
 
@@ -269,8 +283,8 @@ HDf5 nad h5py for saving and loading model functions
 
 ## Mac Setup
 
-    
 ### Installing Python
+
     Install Homebrew https://brew.sh/
     brew install python
 
@@ -349,7 +363,12 @@ cn ~ $ python
 
 sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.1.0rc1-py2-none-any.whl
 
-cn ~ $ python
+> cn ~ $ python
+
+```bash
+
 >>> import tensorflow as tf
 >>> tf.__version__
 '1.1.0-rc1'
+
+```
