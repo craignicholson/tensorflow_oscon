@@ -40,11 +40,12 @@ On your Windows PC go to My computer -> right click anywhere and select Properti
 ** Environment Variables is at the bottom **
 
 System Variables
-    Path (Choose the Path Variable)
-        Edit  
-            New (Add the new paths for python, and .\scripts for pip)
-                C:\Python35  
-                C:\Python35\Scripts   
+
+* Path (Choose the Path Variable)
+  * Edit
+    * New (Add the new paths for python, and .\scripts for pip)
+      * C:\Python35
+      * C:\Python35\Scripts
 
 #### Test Environment Variable
 Open powershell or command prompt
