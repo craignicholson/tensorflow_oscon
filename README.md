@@ -29,8 +29,8 @@ Download python 3.5
 * https://www.python.org/downloads/windows/
 * python-3.5.2-amd64.exe
 
-1. Click Advanced on install and change the directory so we can easily setup the  environmental paths
-2. Set the directory to C:\Python35 (Or your choice)
+1. Click .exe and choose Advanced on install and change the directory so we can easily setup the environmental paths.
+2. Set the directory to C:\Python35 (Or your choice).
 3. Finish the install.
 
 #### Add Environment Variables
@@ -232,7 +232,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import keras; keras.__version__
 Using TensorFlow backend.
 '2.0.3'
->>>
+>>> quit()
 
 ```
 
@@ -282,10 +282,82 @@ Successfully installed cycler-0.10.0 matplotlib-2.0.0 python-dateutil-2.6.0 pytz
 
 ```
 
-### HDF5 or h5py
+### Additional Python packages
 
-What are these... Keras might need these for oscon.  Review it.
-HDf5 nad h5py for saving and loading model functions
+
+> C:\>pip install --upgrade pandas
+
+```bash
+
+Collecting pandas
+  Using cached pandas-0.19.2-cp35-cp35m-win_amd64.whl
+Requirement already up-to-date: numpy>=1.7.0 in c:\python\python35\lib\site-packages (from pandas)
+Requirement already up-to-date: python-dateutil>=2 in c:\python\python35\lib\site-packages (from pandas)
+Requirement already up-to-date: pytz>=2011k in c:\python\python35\lib\site-packages (from pandas)
+Requirement already up-to-date: six>=1.5 in c:\python\python35\lib\site-packages (from python-dateutil>=2->pandas)
+Installing collected packages: pandas
+Successfully installed pandas-0.19.2
+
+```
+
+> C:\>pip install --upgrade hdf5
+
+```bash
+
+Collecting hdf5
+  Could not find a version that satisfies the requirement hdf5 (from versions: )
+No matching distribution found for hdf5
+
+```
+
+> C:\>pip install --upgrade ipython
+
+```bash
+
+Collecting ipython
+  Using cached ipython-6.0.0-py3-none-any.whl
+Collecting decorator (from ipython)
+  Using cached decorator-4.0.11-py2.py3-none-any.whl
+Requirement already up-to-date: colorama; sys_platform == "win32" in c:\python\python35\lib\site-packages (from ipython)
+Collecting pygments (from ipython)
+  Using cached Pygments-2.2.0-py2.py3-none-any.whl
+Collecting pickleshare (from ipython)
+  Using cached pickleshare-0.7.4-py2.py3-none-any.whl
+Collecting win-unicode-console>=0.5; sys_platform == "win32" and python_version < "3.6" (from ipython)
+Requirement already up-to-date: setuptools>=18.5 in c:\python\python35\lib\site-packages (from ipython)
+Collecting prompt-toolkit<2.0.0,>=1.0.4 (from ipython)
+  Using cached prompt_toolkit-1.0.14-py3-none-any.whl
+Collecting jedi>=0.10 (from ipython)
+  Using cached jedi-0.10.2-py2.py3-none-any.whl
+Collecting simplegeneric>0.8 (from ipython)
+Collecting traitlets>=4.2 (from ipython)
+  Using cached traitlets-4.3.2-py2.py3-none-any.whl
+Requirement already up-to-date: packaging>=16.8 in c:\python\python35\lib\site-packages (from setuptools>=18.5->ipython)
+Requirement already up-to-date: appdirs>=1.4.0 in c:\python\python35\lib\site-packages (from setuptools>=18.5->ipython)
+Requirement already up-to-date: six>=1.6.0 in c:\python\python35\lib\site-packages (from setuptools>=18.5->ipython)
+Collecting wcwidth (from prompt-toolkit<2.0.0,>=1.0.4->ipython)
+  Using cached wcwidth-0.1.7-py2.py3-none-any.whl
+Collecting ipython-genutils (from traitlets>=4.2->ipython)
+  Using cached ipython_genutils-0.2.0-py2.py3-none-any.whl
+Requirement already up-to-date: pyparsing in c:\python\python35\lib\site-packages (from packaging>=16.8->setuptools>=18.5->ipython)
+Installing collected packages: decorator, pygments, pickleshare, win-unicode-console, wcwidth, prompt-toolkit, jedi, simplegeneric, ipython-genutils, traitlets, ipython
+Successfully installed decorator-4.0.11 ipython-6.0.0 ipython-genutils-0.2.0 jedi-0.10.2 pickleshare-0.7.4 prompt-toolkit-1.0.14 pygments-2.2.0 simplegeneric-0.8.1 traitlets-4.3.2 wcwidth-0.1.7 win-unicode-console-0.5
+
+```
+
+> C:\>pip install --upgrade h5py
+
+```bash
+
+Collecting h5py
+  Downloading h5py-2.7.0-cp35-cp35m-win_amd64.whl (1.9MB)
+    100% |################################| 1.9MB 470kB/s
+Requirement already up-to-date: numpy>=1.7 in c:\python\python35\lib\site-packages (from h5py)
+Requirement already up-to-date: six in c:\python\python35\lib\site-packages (from h5py)
+Installing collected packages: h5py
+Successfully installed h5py-2.7.0
+
+```
 
 ## Mac Setup
 
