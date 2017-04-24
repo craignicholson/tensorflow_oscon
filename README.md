@@ -399,7 +399,8 @@ Anaconda was already setup... from an older Continuium Download so this area nee
 https://www.tensorflow.org/install/install_mac
 
 > cn ~ $  sudo pip install tensorflow
-> cn ~ $  python 
+
+> cn ~ $  python
 
 ```bash
 
