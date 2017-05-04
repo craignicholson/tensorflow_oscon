@@ -430,14 +430,6 @@ Hello, TensorFlow!
 cn ~ $  python -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 2
         1.0.1
 
-### Test keras
-
-[Blog](https://ermaker.github.io/blog/2016/06/22/get-started-with-keras-for-beginners-tensorflow-backend.html)
-
-> cn ~ $ curl -sSL https://github.com/fchollet/keras/raw/master/examples/mnist_mlp.py | python
-
-
-
 ### Test numpy, scipy
 
 > cn ~ $ python
@@ -483,3 +475,11 @@ Using TensorFlow backend.
 >>> quit()
 
 ```
+
+### Test keras
+
+[Blog](https://ermaker.github.io/blog/2016/06/22/get-started-with-keras-for-beginners-tensorflow-backend.html)
+
+> cn ~ $ curl -sSL https://github.com/fchollet/keras/raw/master/examples/mnist_mlp.py | python
+
+
