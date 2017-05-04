@@ -430,32 +430,32 @@ Hello, TensorFlow!
 cn ~ $  python -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 2
         1.0.1
 
+### Test keras
+
+[Blog](https://ermaker.github.io/blog/2016/06/22/get-started-with-keras-for-beginners-tensorflow-backend.html)
+
 > cn ~ $ curl -sSL https://github.com/fchollet/keras/raw/master/examples/mnist_mlp.py | python
 
-https://ermaker.github.io/blog/2016/06/22/get-started-with-keras-for-beginners-tensorflow-backend.html
 
-### Get the most current releast of Tensorflow
 
-Check current version
+### Test numpy, scipy
+
 > cn ~ $ python
 
-```bash
+```python
 
->>> import tensorflow as tf
->>> tf.__version__
-'1.0.1'
-```
-
-Get the version urls here:
-
-> sudo pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.1.0rc1-py2-none-any.whl
-> cn ~ $ python
-
-```bash
-
->>> import tensorflow as tf
->>> tf.__version__
-'1.1.0-rc1'
+Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17) 
+[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+>>> import scipy
+>>> import numpy
+>>> scipy.__version__
+'0.15.0'
+>>> numpy.__version__
+'1.12.1'
+>>> quit()
 
 ```
 
@@ -465,22 +465,21 @@ Get the version urls here:
 
 Make TensorFlow the default engine for Keras
 
-```shell
-
-> cn ~ $ mkdir -p ~/.keras
-> cn ~ $ echo '{"epsilon":1e-07,"floatx":"float32","backend":"tensorflow"}' > ~/.keras/keras.json
-
-```
-
-Did I even need to do this?  Windows Keras hooked up tensorflow all by itself.
-
 ### Make Sure Keras runs
 
 > cn ~ $ python
 
 ```bash
 
-  >>> import keras
-  Using TensorFlow backend
+Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17) 
+[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+>>> import keras; keras.__version__
+Using TensorFlow backend.
+'2.0.4'
+
+>>> quit()
 
 ```
