@@ -361,37 +361,31 @@ Successfully installed h5py-2.7.0
 
 ## Mac Setup
 
-### Installing Python
+### Pre-work with older Anaconda installs
 
-    Install Homebrew https://brew.sh/
-    brew install python
+> cn ~ $  rm -rf ~/anaconda2
 
-### Installing Pip
+Remove the export for this install
+> cn ~ $  vi ~.bash_profile
 
-Anaconda was already setup... from an older Continuium Download so this area needs to be re-worked from a scatch build.
 
-* Python 2.7.12 :: Anaconda custom (x86_64)
 
-> cn ~ $  pip -V
 
-```bash
+### Installing Python w/ Anaconda
+* Download the bash script from https://www.continuum.io/downloads#macos
+* I'm using the latest version for python 3... since I had issues with some older libs with python2
 
-        pip 8.1.1 from /Users/cn/anaconda/lib/python2.7/site-packages (python 2.7)
+cd Downloads
+> bash Anaconda3-4.3.1-MacOSX-x86_64.sh 
 
-```
+> 
 
-> cn ~ $  sudo easy_install --upgrade pip
+### Verify Python & Pip Installs
+> cn ~ $  python -V | pip -V
 
-```bash
-
-        Best match: pip 9.0.1
-```
-
-> cn ~ $  pip -V
-
-```bash
-
-      pip 9.0.1 from /Users/cn/anaconda/lib/python2.7/site-packages/pip-9.0.1-py2.7.egg (python 2.7)
+```bash 
+        Python 3.6.0 :: Anaconda 4.3.1 (x86_64)
+        pip 9.0.1 from /Users/cn/anaconda3/lib/python3.6/site-packages (python 3.6)
 ```
 
 ### Install Tensorflow
@@ -403,32 +397,30 @@ https://www.tensorflow.org/install/install_mac
 > cn ~ $  python
 
 ```bash
-
-Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17)
-[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Python 3.6.0 |Anaconda 4.3.1 (x86_64)| (default, Dec 23 2016, 13:19:00) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
-Anaconda is brought to you by Continuum Analytics.
-Please check out: http://continuum.io/thanks and https://anaconda.org
+>>> import tensorflow tf
+  File "<stdin>", line 1
+    import tensorflow tf
+                       ^
+SyntaxError: invalid syntax
 >>> import tensorflow as tf
 >>> hello = tf.constant('Hello, TensorFlow!')
+>>>  sess = tf.Session()
 >>> sess = tf.Session()
-            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, 
-                but these are available on your machine and could speed up CPU computations.
-            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, 
-                but these are available on your machine and could speed up CPU computations.
-            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, 
-                but these are available on your machine and could speed up CPU computations.
-            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, 
-                but these are available on your machine and could speed up CPU computations.
-            W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, 
-                but these are available on your machine and could speed up CPU computations.
+2017-05-08 20:29:44.953858: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-08 20:29:44.953899: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-08 20:29:44.953912: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-08 20:29:44.953925: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-05-08 20:29:44.953936: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
 >>> print(sess.run(hello))
-Hello, TensorFlow!
+b'Hello, TensorFlow!'
 
 ```
-
-cn ~ $  python -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 2
-        1.0.1
+#### Check the Version of TensorFlow
+cn ~ $  python -c 'import tensorflow as tf; print(tf.__version__)' 
+        1.1.0
 
 ### Test numpy, scipy
 
@@ -436,17 +428,15 @@ cn ~ $  python -c 'import tensorflow as tf; print(tf.__version__)'  # for Python
 
 ```python
 
-Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17) 
-[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Python 3.6.0 |Anaconda 4.3.1 (x86_64)| (default, Dec 23 2016, 13:19:00) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
-Anaconda is brought to you by Continuum Analytics.
-Please check out: http://continuum.io/thanks and https://anaconda.org
 >>> import scipy
 >>> import numpy
 >>> scipy.__version__
-'0.15.0'
+'0.18.1'
 >>> numpy.__version__
-'1.12.1'
+'1.11.3'
 >>> quit()
 
 ```
@@ -455,24 +445,52 @@ Please check out: http://continuum.io/thanks and https://anaconda.org
 
 > cn ~ $ pip install --upgrade keras
 
-Make TensorFlow the default engine for Keras
-
 ### Make Sure Keras runs
+
+```bash
+
+Collecting keras
+  Downloading Keras-2.0.4.tar.gz (199kB)
+    100% |████████████████████████████████| 204kB 342kB/s 
+Collecting theano (from keras)
+  Downloading Theano-0.9.0.tar.gz (3.1MB)
+    100% |████████████████████████████████| 3.1MB 108kB/s 
+Requirement already up-to-date: pyyaml in ./anaconda3/lib/python3.6/site-packages (from keras)
+Requirement already up-to-date: six in ./anaconda3/lib/python3.6/site-packages (from keras)
+Collecting numpy>=1.9.1 (from theano->keras)
+  Downloading numpy-1.12.1-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (4.4MB)
+    100% |████████████████████████████████| 4.4MB 126kB/s 
+Collecting scipy>=0.14 (from theano->keras)
+  Downloading scipy-0.19.0-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (16.2MB)
+    100% |████████████████████████████████| 16.2MB 40kB/s 
+Building wheels for collected packages: keras, theano
+  Running setup.py bdist_wheel for keras ... done
+  Stored in directory: /Users/cn/Library/Caches/pip/wheels/48/82/42/f06a8c03a8f95ada523a81ba723e89f059693e6ad868d09727
+  Running setup.py bdist_wheel for theano ... done
+  Stored in directory: /Users/cn/Library/Caches/pip/wheels/d5/5b/93/433299b86e3e9b25f0f600e4e4ebf18e38eb7534ea518eba13
+Successfully built keras theano
+Installing collected packages: numpy, scipy, theano, keras
+  Found existing installation: numpy 1.11.3
+    Uninstalling numpy-1.11.3:
+      Successfully uninstalled numpy-1.11.3
+  Found existing installation: scipy 0.18.1
+    Uninstalling scipy-0.18.1:
+      Successfully uninstalled scipy-0.18.1
+Successfully installed keras-2.0.4 numpy-1.12.1 scipy-0.19.0 theano-0.9.0
+
+```
 
 > cn ~ $ python
 
 ```bash
 
-Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17) 
-[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+cn ~ $ python
+Python 3.6.0 |Anaconda 4.3.1 (x86_64)| (default, Dec 23 2016, 13:19:00) 
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
-Anaconda is brought to you by Continuum Analytics.
-Please check out: http://continuum.io/thanks and https://anaconda.org
->>> import keras; keras.__version__
+>>> import keras
 Using TensorFlow backend.
-'2.0.4'
 
->>> quit()
 
 ```
 
@@ -481,5 +499,5 @@ Using TensorFlow backend.
 [Blog](https://ermaker.github.io/blog/2016/06/22/get-started-with-keras-for-beginners-tensorflow-backend.html)
 
 > cn ~ $ curl -sSL https://github.com/fchollet/keras/raw/master/examples/mnist_mlp.py | python
-
+If this script runs... everything is working.
 
